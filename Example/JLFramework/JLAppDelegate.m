@@ -8,7 +8,14 @@
 
 #import "JLAppDelegate.h"
 
+@import JLFramework;
+
 @implementation JLAppDelegate
+
++ (void)initialize {
+    [CDManager sharedInstance].modelName = @"Example";
+    
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

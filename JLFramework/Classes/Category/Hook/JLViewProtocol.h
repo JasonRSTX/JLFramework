@@ -27,3 +27,7 @@
 @interface UICollectionViewCell (JLView) <JLViewProtocol>
 
 @end
+
+@interface UIViewController (JLView) <JLViewProtocol>
+
+@end

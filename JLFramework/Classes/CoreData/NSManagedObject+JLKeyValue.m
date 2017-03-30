@@ -1,16 +1,15 @@
 //
-//  NSObject+JLKeyValue.m
+//  NSManagedObject+JLKeyValue.m
 //  Pods
 //
-//  Created by Jason Li on 2017/3/13.
+//  Created by Jason Li on 2017/3/29.
 //
 //
 
-#import "NSObject+JLKeyValue.h"
+#import "NSManagedObject+JLKeyValue.h"
 @import JRSwizzle;
 
-@implementation NSObject (JLKeyValue)
-
+@implementation NSManagedObject (JLKeyValue)
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -50,5 +49,4 @@
 #endif
     return nil;
 }
-
 @end

@@ -18,6 +18,3 @@
 - (void)setObject:(id)anObject atIndexedSubscript:(NSUInteger)index;
 
 @end
-
-#import "NSNull+JLSafeAccessSubscript.h"
-#import "NSString+JLSafeAccessSubscript.h"

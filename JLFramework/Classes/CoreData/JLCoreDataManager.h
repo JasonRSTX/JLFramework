@@ -98,8 +98,8 @@ NSPersistentStoreCoordinator *dataCoordinator;
  @return FetchRequest实例
  */
 - (NSFetchRequest *)requestWithEntity:(NSEntityDescription *)entity
-                            predicate:(NSPredicate *)predicate
-                       sortDescriptor:(NSArray *)sortDescriptors;
+                            predicate:(nullable NSPredicate *)predicate
+                       sortDescriptor:(nullable NSArray *)sortDescriptors;
 
 /**
  查询结果

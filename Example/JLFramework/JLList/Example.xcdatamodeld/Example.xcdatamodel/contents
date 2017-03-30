@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16C67" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="ListInfo" representedClassName="ListInfo" syncable="YES" codeGenerationType="class">
+        <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="exampleID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="landingVC" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastShowTime" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="lastUpdateTime" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="showCount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="ListInfo" positionX="-63" positionY="-18" width="128" height="150"/>
+    </elements>
+</model>

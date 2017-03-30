@@ -18,7 +18,7 @@
 @synthesize dataModel = _dataModel;
 @synthesize dataCoordinator = _dataCoordinator;
 
-+ (instancetype)sharedManager {
++ (instancetype)sharedInstance {
     static dispatch_once_t onceInstance;
     static CDManager *instance;
     dispatch_once(&onceInstance, ^{
@@ -91,7 +91,7 @@
 }
 
 - (NSManagedObjectContext *)dataContext {
-    if (_dataCoordinator) return _dataCoordinator;
+    if (_dataContext) return _dataContext;
     NSPersistentStoreCoordinator *coordinator = [self dataCoordinator];
     if (coordinator != nil) {
         _dataContext = [[NSManagedObjectContext alloc]
@@ -99,7 +99,7 @@
         [_dataContext setPersistentStoreCoordinator:coordinator];
     }
     
-    return _dataCoordinator;
+    return _dataContext;
 }
 
 //MARK: - 插入
@@ -167,6 +167,41 @@
         success = NO;
     }
     return success;
+}
+
+//MARK: - 查询
+- (NSFetchRequest *)requestWithEntity:(NSEntityDescription *)entity
+                            predicate:(NSPredicate *)predicate
+                       sortDescriptor:(NSArray *)sortDescriptors {
+    // Create and configure a fetch request with the Book entity.
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entity];
+    if (predicate) [request setPredicate:predicate];
+    if (sortDescriptors) [request setSortDescriptors:sortDescriptors];
+    
+    return request;
+}
+
+- (NSArray *)resultsForRequest:(NSFetchRequest *)request {
+    NSError *error;
+    NSArray *array = [self.dataContext executeFetchRequest:request error:&error];
+    
+    if (error) {
+        NSLog(@"%s, Error %@, %@", __func__, error, [error userInfo]);
+        return 0;
+    }
+    return array;
+}
+
+- (NSInteger)countForRequest:(NSFetchRequest *)request {
+    NSError *error;
+    NSInteger count = [self.dataContext countForFetchRequest:request error:&error];
+    
+    if (error) {
+        NSLog(@"%s, Error %@, %@", __func__, error, [error userInfo]);
+        return 0;
+    }
+    return count;
 }
 
 @end
