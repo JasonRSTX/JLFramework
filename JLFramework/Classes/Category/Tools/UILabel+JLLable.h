@@ -6,10 +6,14 @@
 //
 //
 
+#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
 @interface UILabel (JLLable)
 - (CGSize)simpleSize;
+
+- (CGFloat)realHeightInView:(UIView *)view;
+- (CGFloat)realHeightInView:(UIView *)view atInsets:(UIEdgeInsets)insets;
 
 @end
 

@@ -9,10 +9,19 @@
 #import "UILabel+JLLable.h"
 
 #import "NSString+JLString.h"
+#import "UIView+JLView.h"
 
 @implementation UILabel (JLLable)
 - (CGSize)simpleSize {
     return [self.text sizeByFont:self.font];
+}
+
+- (CGFloat)realHeightInView:(UIView *)view {
+    return [self realHeightInView:view atInsets:self.contentInsets];
+}
+
+- (CGFloat)realHeightInView:(UIView *)view atInsets:(UIEdgeInsets)insets {
+    return [self.text sizeByFont:self.font boundSize:[self contentSizeInView:view atInsets:insets] lineBreakMode:self.lineBreakMode].height;
 }
 
 @end

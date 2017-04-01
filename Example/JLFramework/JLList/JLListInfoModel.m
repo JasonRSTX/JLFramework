@@ -113,9 +113,9 @@
     NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithCapacity:0];
     [dict setValue:@"JLKeyValue" forKey:@"exampleID"];
     [dict setValue:@"NSObject+JLKeyValue" forKey:@"title"];
-    [dict setValue:@"Avoid Crash:使用原生的NSKeyValueCoding中-setValuesForKeysWithDictionary:方法." forKey:@"desc"];
-    [dict setValue:@"" forKey:@"landingVC"];
-    [dict setValue:@"20170329" forKey:@"lastUpdateTime"];
+    [dict setValue:@"Avoid Crash:使用原生的NSKeyValueCoding中\n-setValuesForKeysWithDictionary:方法." forKey:@"desc"];
+    [dict setValue:@"JLKeyValueVC" forKey:@"landingVC"];
+    [dict setValue:@"20170331" forKey:@"lastUpdateTime"];
     
     return dict;
 }

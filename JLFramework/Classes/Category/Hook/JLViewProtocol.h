@@ -14,6 +14,8 @@
 
 - (void)setupLayoutConstraint;
 
+- (CGFloat)heightView;
+
 @end
 
 @interface UIView (JLView)<JLViewProtocol>

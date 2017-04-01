@@ -90,4 +90,16 @@ static const void *contentInsetsRight = &contentInsetsRight;
     self.frame = rect;
 }
 
+- (CGSize)contentSize {
+    return [self contentSizeInView:self];
+}
+
+- (CGSize)contentSizeInView:(UIView *)view {
+    return [self contentSizeInView:view atInsets:self.contentInsets];
+}
+
+- (CGSize)contentSizeInView:(UIView *)view atInsets:(UIEdgeInsets)inset {
+    return CGSizeMake(CGRectGetWidth(view.bounds) - inset.left - inset.right, CGFLOAT_MAX);
+}
+
 @end

@@ -4,6 +4,8 @@ target 'JLFramework_Example' do
   pod 'JLFramework', :path => '../'
   
   pod 'Masonry', '~> 1.0.2'
+  
+  pod 'UITableView+FDTemplateLayoutCell', '~> 1.5.beta'
 
   target 'JLFramework_Tests' do
     inherit! :search_paths

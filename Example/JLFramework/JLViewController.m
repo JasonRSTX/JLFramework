@@ -8,6 +8,7 @@
 
 #import "JLViewController.h"
 #import "JLTableViewController.h"
+#import "UIColor+Project.h"
 
 @import Masonry;
 @import JLFramework;
@@ -26,20 +27,19 @@
 	// Do any additional setup after loading the view, typically from a nib.
     
     [self addChildController:self.navVC];
+    
+    __weak typeof(self) weakSelf = self;
+    [self.navVC.view mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(weakSelf.view);
+    }];
+    
+    [[UINavigationBar appearance] setTintColor:[UIColor sportColor]];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void)setupLayoutConstraint {
-    __weak typeof(self) weakSelf = self;
-    [self.navVC.view mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(weakSelf.view);
-    }];
-
 }
 
 //MARK: - Getter And Setter

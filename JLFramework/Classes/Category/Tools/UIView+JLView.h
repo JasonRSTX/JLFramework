@@ -18,4 +18,8 @@
 @property (nonatomic, assign) CGSize view_size;
 @property (nonatomic, assign) CGPoint view_origin;
 
+- (CGSize)contentSize;
+- (CGSize)contentSizeInView:(UIView *)view;
+- (CGSize)contentSizeInView:(UIView *)view atInsets:(UIEdgeInsets)inset;
+
 @end

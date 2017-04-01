@@ -20,6 +20,6 @@
 
 @end
 
-@interface UITableViewController (JLCoreData) <JLCoreDataFetchedConfigCellProtocol>
+@interface UITableViewController (JLCoreData) <NSFetchedResultsControllerDelegate,JLCoreDataFetchedConfigCellProtocol>
 
 @end
