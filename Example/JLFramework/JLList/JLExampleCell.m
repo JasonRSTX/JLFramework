@@ -97,7 +97,7 @@
     _labDesc = [[UILabel alloc] init];
     _labDesc.font = [UIFont descFont];
     _labDesc.textColor = [UIColor grayDataColor];
-    _labDesc.numberOfLines = 2;
+    _labDesc.numberOfLines = 0;
     _labDesc.lineBreakMode = NSLineBreakByWordWrapping;
     
     return _labDesc;

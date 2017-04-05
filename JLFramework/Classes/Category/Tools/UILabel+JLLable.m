@@ -17,7 +17,7 @@
 }
 
 - (CGFloat)realHeightInView:(UIView *)view {
-    return [self realHeightInView:view atInsets:self.contentInsets];
+    return [self realHeightInView:view atInsets:view.contentInsets];
 }
 
 - (CGFloat)realHeightInView:(UIView *)view atInsets:(UIEdgeInsets)insets {

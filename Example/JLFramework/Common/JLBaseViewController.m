@@ -24,24 +24,13 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.labExampleDesc];
+    self.view.contentInsets = self.edgeInsets;
     
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-//MARK: - Getter And Setter
-- (UILabel *)labExampleDesc {
-    if (_labExampleDesc) return _labExampleDesc;
-    _labExampleDesc = [[UILabel alloc] init];
-    _labExampleDesc.lineBreakMode = NSLineBreakByWordWrapping;
-    _labExampleDesc.numberOfLines = 0;
-    _labExampleDesc.font = [UIFont contentFont];
-    _labExampleDesc.textColor =  [UIColor grayDataColor];
-    
-    return _labExampleDesc;
 }
 
 - (void)setupLayoutConstraint {
@@ -56,6 +45,28 @@
         make.height.mas_equalTo([weakSelf.labExampleDesc realHeightInView:weakSelf.view]);
         
     }];
+}
+
+//MARK: - Getter And Setter
+- (UILabel *)labExampleDesc {
+    if (_labExampleDesc) return _labExampleDesc;
+    _labExampleDesc = [[UILabel alloc] init];
+    _labExampleDesc.lineBreakMode = NSLineBreakByWordWrapping;
+    _labExampleDesc.numberOfLines = 0;
+    _labExampleDesc.font = [UIFont contentFont];
+    _labExampleDesc.textColor =  [UIColor grayDataColor];
+    
+    return _labExampleDesc;
+}
+
+- (UIButton *)defaultButton {
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [button setTitleColor:[UIColor sportColor] forState:UIControlStateNormal];
+    button.layer.borderColor = [UIColor sportColor].CGColor;
+    button.layer.borderWidth = 0.5f;
+    button.layer.cornerRadius = self.cornerRadius;
+    
+    return button;
 }
 
 @end

@@ -95,7 +95,7 @@ static const void *contentInsetsRight = &contentInsetsRight;
 }
 
 - (CGSize)contentSizeInView:(UIView *)view {
-    return [self contentSizeInView:view atInsets:self.contentInsets];
+    return [self contentSizeInView:view atInsets:view.contentInsets];
 }
 
 - (CGSize)contentSizeInView:(UIView *)view atInsets:(UIEdgeInsets)inset {

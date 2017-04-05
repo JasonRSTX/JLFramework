@@ -11,4 +11,6 @@
 @interface JLBaseViewController : UIViewController
 @property (nonatomic, strong) UILabel *labExampleDesc;
 
+- (UIButton *)defaultButton;
+
 @end

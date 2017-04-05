@@ -7,18 +7,65 @@
 //
 
 #import "NSObject+JLKeyboard.h"
+#import "UIView+JLView.h"
+#import <objc/runtime.h>
+
+static const void *keyboardResponseViewOriginalY = &keyboardResponseViewOriginalY;
+
+@interface NSObject (JLKeyboard)
+@property (nonatomic, assign) CGFloat originalY;
+
+@end
 
 @implementation NSObject (JLKeyboard)
+- (NSNotification *)keyboardNotification {
+    return objc_getAssociatedObject(self, @selector(keyboardNotification));
+}
+
+- (void)setKeyboardNotification:(NSNotification *)keyboardNotification {
+    objc_setAssociatedObject(self, @selector(keyboardNotification), keyboardNotification, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (UIView *)keyboardResponseView {
+    return objc_getAssociatedObject(self, @selector(keyboardResponseView));
+}
+
+- (void)setKeyboardResponseView:(UIView *)keyboardResponseView {
+    self.originalY = keyboardResponseView.view_y;
+    objc_setAssociatedObject(self, @selector(keyboardResponseView), keyboardResponseView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (CGFloat)originalY {
+    return [objc_getAssociatedObject(self, keyboardResponseViewOriginalY) floatValue];
+}
+
+- (void)setOriginalY:(CGFloat)originalY {
+    objc_setAssociatedObject(self, keyboardResponseViewOriginalY, @(originalY), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (BOOL)isShowedKeyboard {
+    return self.keyboardNotification;
+}
+
 - (void)addKeyboardNotification {
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center  addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification  object:nil];
+    [center  addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification  object:nil];
     [center addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    [center addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardDidHideNotification object:nil];
+    
 }
 
 - (void)removeKeyboardNotification {
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [center removeObserver:self name:UIKeyboardDidShowNotification object:nil];
     [center removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+    [center removeObserver:self name:UIKeyboardDidHideNotification object:nil];
+    
+    self.keyboardNotification = nil;
+    self.keyboardResponseView = nil;
+    self.originalY = 0;
 }
 
 - (CGSize)sizeKeyboard:(NSNotification *)notification {
@@ -43,10 +90,48 @@
 }
 
 - (void)keyboardWillShow:(NSNotification *)notification{
+    self.keyboardNotification = notification;
+    if (self.keyboardResponseView) {
+        CGFloat newY = self.originalY - [self heightKeyboard:notification];
+        __weak typeof(self) weakSelf = self;
+        [UIView animateWithDuration:[self durationKeyboardAnimation:notification] animations:^{
+            weakSelf.keyboardResponseView.view_y = newY;
+        }];
+    }
+    
+    if ([self respondsToSelector:@selector(keyboardWillShow)]) {
+        [self keyboardWillShow];
+    }
     
 }
 
-- (void)keyboardWillHide:(NSNotification *)notification{
-    
+- (void)keyboardDidShow:(NSNotification *)notification{
+    if ([self respondsToSelector:@selector(keyboardDidShow)]) {
+        [self keyboardDidShow];
+    }
 }
+
+- (void)keyboardWillHide:(NSNotification *)notification{
+    if (self.keyboardResponseView) {
+        __weak typeof(self) weakSelf = self;
+        [UIView animateWithDuration:[self durationKeyboardAnimation:notification] animations:^{
+            weakSelf.keyboardResponseView.view_y = weakSelf.originalY;
+        }];
+    }
+    
+    if ([self respondsToSelector:@selector(keyboardWillHide)]) {
+        [self keyboardWillHide];
+    }
+}
+
+- (void)keyboardDidHide:(NSNotification *)notification{
+    self.keyboardNotification = nil;
+    
+    if ([self respondsToSelector:@selector(keyboardDidHide)]) {
+        [self keyboardDidHide];
+    }
+}
+
+
+
 @end

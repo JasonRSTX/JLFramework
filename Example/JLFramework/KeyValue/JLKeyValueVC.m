@@ -89,16 +89,6 @@
     return _person;
 }
 
-- (UIButton *)defaultButton {
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [button setTitleColor:[UIColor sportColor] forState:UIControlStateNormal];
-    button.layer.borderColor = [UIColor sportColor].CGColor;
-    button.layer.borderWidth = 0.5f;
-    button.layer.cornerRadius = self.cornerRadius;
-    
-    return button;
-}
-
 - (UIButton *)btnNilValue {
     if (_btnNilValue) return _btnNilValue;
     _btnNilValue = [self defaultButton];

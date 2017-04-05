@@ -29,9 +29,14 @@
 		962DC6B41E8A630100235DDA /* Example.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 962DC6B21E8A630100235DDA /* Example.xcdatamodeld */; };
 		9634A0531E8A4D7F00888CA6 /* JLTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9634A0521E8A4D7F00888CA6 /* JLTableViewController.m */; };
 		96410C4C1E8CCF4E0088A9B2 /* UIColor+Project.m in Sources */ = {isa = PBXBuildFile; fileRef = 96410C4B1E8CCF4E0088A9B2 /* UIColor+Project.m */; };
+		96496F5E1E94BE9500018E79 /* JLKeyboardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 96496F5D1E94BE9500018E79 /* JLKeyboardVC.m */; };
+		966C7D911E8F855300AD80DB /* JLSubscriptVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 966C7D901E8F855300AD80DB /* JLSubscriptVC.m */; };
+		966C7D961E8F90E000AD80DB /* JLArrayShuffleVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 966C7D951E8F90E000AD80DB /* JLArrayShuffleVC.m */; };
 		967F6BDF1E8E23140000D9BB /* JLKeyValueVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 967F6BDE1E8E23140000D9BB /* JLKeyValueVC.m */; };
 		967F6BE71E8E38D10000D9BB /* JLPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 967F6BE61E8E38D10000D9BB /* JLPerson.m */; };
 		967F6BEC1E8E54330000D9BB /* JLBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 967F6BEB1E8E54330000D9BB /* JLBaseViewController.m */; };
+		968BC2B11E8F76FE006A2CB6 /* JLInitVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 968BC2B01E8F76FE006A2CB6 /* JLInitVC.m */; };
+		968BC2B51E8F7931006A2CB6 /* JLInitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 968BC2B41E8F7931006A2CB6 /* JLInitView.m */; };
 		E12C099959E5CF37D0C51EE1 /* Pods_JLFramework_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B527B7A632B6F93F5F44F99E /* Pods_JLFramework_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -80,12 +85,22 @@
 		9634A0521E8A4D7F00888CA6 /* JLTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLTableViewController.m; sourceTree = "<group>"; };
 		96410C4A1E8CCF4E0088A9B2 /* UIColor+Project.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Project.h"; sourceTree = "<group>"; };
 		96410C4B1E8CCF4E0088A9B2 /* UIColor+Project.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Project.m"; sourceTree = "<group>"; };
+		96496F5C1E94BE9500018E79 /* JLKeyboardVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLKeyboardVC.h; sourceTree = "<group>"; };
+		96496F5D1E94BE9500018E79 /* JLKeyboardVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLKeyboardVC.m; sourceTree = "<group>"; };
+		966C7D8F1E8F855300AD80DB /* JLSubscriptVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLSubscriptVC.h; sourceTree = "<group>"; };
+		966C7D901E8F855300AD80DB /* JLSubscriptVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLSubscriptVC.m; sourceTree = "<group>"; };
+		966C7D941E8F90E000AD80DB /* JLArrayShuffleVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLArrayShuffleVC.h; sourceTree = "<group>"; };
+		966C7D951E8F90E000AD80DB /* JLArrayShuffleVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLArrayShuffleVC.m; sourceTree = "<group>"; };
 		967F6BDD1E8E23140000D9BB /* JLKeyValueVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLKeyValueVC.h; sourceTree = "<group>"; };
 		967F6BDE1E8E23140000D9BB /* JLKeyValueVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLKeyValueVC.m; sourceTree = "<group>"; };
 		967F6BE51E8E38D10000D9BB /* JLPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLPerson.h; sourceTree = "<group>"; };
 		967F6BE61E8E38D10000D9BB /* JLPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLPerson.m; sourceTree = "<group>"; };
 		967F6BEA1E8E54330000D9BB /* JLBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLBaseViewController.h; sourceTree = "<group>"; };
 		967F6BEB1E8E54330000D9BB /* JLBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLBaseViewController.m; sourceTree = "<group>"; };
+		968BC2AF1E8F76FE006A2CB6 /* JLInitVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLInitVC.h; sourceTree = "<group>"; };
+		968BC2B01E8F76FE006A2CB6 /* JLInitVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLInitVC.m; sourceTree = "<group>"; };
+		968BC2B31E8F7931006A2CB6 /* JLInitView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLInitView.h; sourceTree = "<group>"; };
+		968BC2B41E8F7931006A2CB6 /* JLInitView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLInitView.m; sourceTree = "<group>"; };
 		B527B7A632B6F93F5F44F99E /* Pods_JLFramework_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JLFramework_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC9BB3D24AB3CA7FDE213EF0 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		D0D14A6CBCF5E429DDEE7077 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -158,14 +173,17 @@
 		6003F593195388D20070C39A /* Example for JLFramework */ = {
 			isa = PBXGroup;
 			children = (
-				967F6BDC1E8E22F90000D9BB /* KeyValue */,
 				9600CA981E8BB2F8003B32E1 /* Common */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F59C195388D20070C39A /* JLAppDelegate.h */,
 				6003F59D195388D20070C39A /* JLAppDelegate.m */,
+				968BC2AE1E8F76CF006A2CB6 /* JLInit */,
 				9634A0501E8A4D6300888CA6 /* JLList */,
+				966C7D8E1E8F852500AD80DB /* JLSafeAccess */,
+				966C7D921E8F8FCA00AD80DB /* JLTools */,
 				6003F5A5195388D20070C39A /* JLViewController.h */,
 				6003F5A6195388D20070C39A /* JLViewController.m */,
+				967F6BDC1E8E22F90000D9BB /* KeyValue */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -276,6 +294,42 @@
 			path = JLList;
 			sourceTree = "<group>";
 		};
+		96496F5B1E94BE7800018E79 /* Keyboard */ = {
+			isa = PBXGroup;
+			children = (
+				96496F5C1E94BE9500018E79 /* JLKeyboardVC.h */,
+				96496F5D1E94BE9500018E79 /* JLKeyboardVC.m */,
+			);
+			name = Keyboard;
+			sourceTree = "<group>";
+		};
+		966C7D8E1E8F852500AD80DB /* JLSafeAccess */ = {
+			isa = PBXGroup;
+			children = (
+				966C7D8F1E8F855300AD80DB /* JLSubscriptVC.h */,
+				966C7D901E8F855300AD80DB /* JLSubscriptVC.m */,
+			);
+			path = JLSafeAccess;
+			sourceTree = "<group>";
+		};
+		966C7D921E8F8FCA00AD80DB /* JLTools */ = {
+			isa = PBXGroup;
+			children = (
+				96496F5B1E94BE7800018E79 /* Keyboard */,
+				966C7D931E8F90CD00AD80DB /* Shuffle */,
+			);
+			path = JLTools;
+			sourceTree = "<group>";
+		};
+		966C7D931E8F90CD00AD80DB /* Shuffle */ = {
+			isa = PBXGroup;
+			children = (
+				966C7D941E8F90E000AD80DB /* JLArrayShuffleVC.h */,
+				966C7D951E8F90E000AD80DB /* JLArrayShuffleVC.m */,
+			);
+			name = Shuffle;
+			sourceTree = "<group>";
+		};
 		967F6BDC1E8E22F90000D9BB /* KeyValue */ = {
 			isa = PBXGroup;
 			children = (
@@ -301,6 +355,25 @@
 				967F6BEB1E8E54330000D9BB /* JLBaseViewController.m */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		968BC2AE1E8F76CF006A2CB6 /* JLInit */ = {
+			isa = PBXGroup;
+			children = (
+				968BC2B21E8F791B006A2CB6 /* View */,
+				968BC2AF1E8F76FE006A2CB6 /* JLInitVC.h */,
+				968BC2B01E8F76FE006A2CB6 /* JLInitVC.m */,
+			);
+			path = JLInit;
+			sourceTree = "<group>";
+		};
+		968BC2B21E8F791B006A2CB6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				968BC2B31E8F7931006A2CB6 /* JLInitView.h */,
+				968BC2B41E8F7931006A2CB6 /* JLInitView.m */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -508,11 +581,16 @@
 				9600CA8F1E8B7B95003B32E1 /* JLListInfoModel.m in Sources */,
 				9600CA9D1E8BB332003B32E1 /* UIFont+Project.m in Sources */,
 				9600CA971E8BB071003B32E1 /* JLExampleCell.m in Sources */,
+				968BC2B51E8F7931006A2CB6 /* JLInitView.m in Sources */,
 				6003F5A7195388D20070C39A /* JLViewController.m in Sources */,
 				967F6BEC1E8E54330000D9BB /* JLBaseViewController.m in Sources */,
 				962DC6B41E8A630100235DDA /* Example.xcdatamodeld in Sources */,
+				966C7D961E8F90E000AD80DB /* JLArrayShuffleVC.m in Sources */,
+				966C7D911E8F855300AD80DB /* JLSubscriptVC.m in Sources */,
 				967F6BDF1E8E23140000D9BB /* JLKeyValueVC.m in Sources */,
+				968BC2B11E8F76FE006A2CB6 /* JLInitVC.m in Sources */,
 				96410C4C1E8CCF4E0088A9B2 /* UIColor+Project.m in Sources */,
+				96496F5E1E94BE9500018E79 /* JLKeyboardVC.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				967F6BE71E8E38D10000D9BB /* JLPerson.m in Sources */,
 				9634A0531E8A4D7F00888CA6 /* JLTableViewController.m in Sources */,

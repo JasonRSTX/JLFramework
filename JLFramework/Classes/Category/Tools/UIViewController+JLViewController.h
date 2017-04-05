@@ -16,11 +16,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)showAlertNote:(NSString *)note doneTitle:(NSString *)done NS_AVAILABLE_IOS(8_0);
 - (void)showAlertNote:(NSString *)note doneTitle:(NSString *)done actionHandler:(void (^)(UIAlertAction *action))handler NS_AVAILABLE_IOS(8_0);
 
-
-- (void)addChildController:(UIViewController *)viewController;
-
-- (void)addChildController:(UIViewController *)viewController frame:(CGRect)frame;
-
 @end
 
 @interface UIViewController (JLChildController)
@@ -30,7 +25,6 @@ NS_ASSUME_NONNULL_BEGIN
  @param viewController ChildController
  */
 - (void)addChildController:(UIViewController *)viewController;
-
 - (void)addChildController:(UIViewController *)viewController frame:(CGRect)frame;
 
 @end
