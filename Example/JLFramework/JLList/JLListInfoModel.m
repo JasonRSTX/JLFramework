@@ -109,6 +109,7 @@
     [_dataSource addObject:[self safeAccessSuscriptExample]];
     [_dataSource addObject:[self arrayShuffleExample]];
     [_dataSource addObject:[self keyboardMoveExample]];
+    [_dataSource addObject:[self layoutExample]];
     
     return _dataSource;
 }
@@ -168,5 +169,15 @@
     return dict;
 }
 
+- (NSDictionary *)layoutExample {
+    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithCapacity:0];
+    [dict setValue:@"Layout" forKey:@"exampleID"];
+    [dict setValue:@"Default Layout Value" forKey:@"title"];
+    [dict setValue:@"Tools:针对布局的相关默认数据，直接通过self.即可使用。" forKey:@"desc"];
+    [dict setValue:@"JLLayoutVC" forKey:@"landingVC"];
+    [dict setValue:@"20170406" forKey:@"lastUpdateTime"];
+    
+    return dict;
+}
 
 @end
