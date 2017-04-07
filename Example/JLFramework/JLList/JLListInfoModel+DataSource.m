@@ -87,4 +87,15 @@
     return dict;
 }
 
+- (NSDictionary *)userDefalutExample {
+    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithCapacity:0];
+    [dict setValue:@"UserDefault" forKey:@"exampleID"];
+    [dict setValue:@"Simple UserDefault" forKey:@"title"];
+    [dict setValue:@"Tools:简化NSUserDefault读取和存储。" forKey:@"desc"];
+    [dict setValue:@"JLUserDefaultVC" forKey:@"landingVC"];
+    [dict setValue:@"20170407" forKey:@"lastUpdateTime"];
+    
+    return dict;
+}
+
 @end

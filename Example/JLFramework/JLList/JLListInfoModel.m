@@ -112,6 +112,7 @@
     [_dataSource addObject:[self keyboardMoveExample]];
     [_dataSource addObject:[self layoutExample]];
     [_dataSource addObject:[self performBlockExample]];
+    [_dataSource addObject:[self userDefalutExample]];
     
     return _dataSource;
 }

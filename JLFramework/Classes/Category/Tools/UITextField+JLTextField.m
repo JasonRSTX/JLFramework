@@ -11,6 +11,8 @@
 #import "NSString+JLString.h"
 #import "NSObject+JLLayout.h"
 
+@import JRSwizzle;
+
 static const void *textFieldMenuUnvisible = &textFieldMenuUnvisible;
 
 @implementation UITextField (JLTextField)
@@ -61,7 +63,43 @@ static const void *textFieldMenuUnvisible = &textFieldMenuUnvisible;
     [self setAttributedText:string];
 }
 
-- (BOOL)canPerformAction:(SEL)action withSender:(id)sender {
++ (void)load {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSError *error;
+        BOOL result = [[self class] jr_swizzleMethod:@selector(canPerformAction:withSender:) withMethod:@selector(jl_canPerformAction:withSender:) error:&error];
+        if (!result || error) {
+            NSLog(@"Can't swizzle methods - %@", [error description]);
+        }
+        
+        result = [[self class] jr_swizzleMethod:@selector(leftViewRectForBounds:) withMethod:@selector(jl_leftViewRectForBounds:) error:&error];
+        if (!result || error) {
+            NSLog(@"Can't swizzle methods - %@", [error description]);
+        }
+        
+        result = [[self class] jr_swizzleMethod:@selector(rightViewRectForBounds:) withMethod:@selector(jl_rightViewRectForBounds:) error:&error];
+        if (!result || error) {
+            NSLog(@"Can't swizzle methods - %@", [error description]);
+        }
+        
+        result = [[self class] jr_swizzleMethod:@selector(textRectForBounds:) withMethod:@selector(jl_textRectForBounds:) error:&error];
+        if (!result || error) {
+            NSLog(@"Can't swizzle methods - %@", [error description]);
+        }
+        
+        result = [[self class] jr_swizzleMethod:@selector(placeholderRectForBounds:) withMethod:@selector(jl_placeholderRectForBounds:) error:&error];
+        if (!result || error) {
+            NSLog(@"Can't swizzle methods - %@", [error description]);
+        }
+        
+        result = [[self class] jr_swizzleMethod:@selector(editingRectForBounds:) withMethod:@selector(jl_editingRectForBounds:) error:&error];
+        if (!result || error) {
+            NSLog(@"Can't swizzle methods - %@", [error description]);
+        }
+    });
+}
+
+- (BOOL)jl_canPerformAction:(SEL)action withSender:(id)sender {
     if (self.menuUnvisible) {
         UIMenuController *menuController = [UIMenuController sharedMenuController];
         if (menuController) {
@@ -71,16 +109,16 @@ static const void *textFieldMenuUnvisible = &textFieldMenuUnvisible;
         return NO;
     }
     
-    return [super canPerformAction:action withSender:sender];
+    return [self jl_canPerformAction:action withSender:sender];
 }
 
-- (CGRect)leftViewRectForBounds:(CGRect)bounds {
+- (CGRect)jl_leftViewRectForBounds:(CGRect)bounds {
     bounds.size.height = CGRectGetHeight(self.bounds);
     bounds.size.width = CGRectGetHeight(self.bounds);
     return bounds;
 }
 
-- (CGRect)rightViewRectForBounds:(CGRect)bounds {
+- (CGRect)jl_rightViewRectForBounds:(CGRect)bounds {
     bounds.size.height = CGRectGetHeight(self.bounds);
     bounds.size.width = CGRectGetHeight(self.bounds);
     bounds.origin.x = CGRectGetWidth(self.bounds) - CGRectGetWidth(bounds);
@@ -88,7 +126,7 @@ static const void *textFieldMenuUnvisible = &textFieldMenuUnvisible;
     return bounds;
 }
 
-- (CGRect)textRectForBounds:(CGRect)bounds {
+- (CGRect)jl_textRectForBounds:(CGRect)bounds {
     if (self.layer.borderWidth > 0.0f && !self.leftView) {
         bounds.origin.x += self.edgeInsets.left;
     } else if (self.leftView && self.textAlignment != NSTextAlignmentRight) {
@@ -97,7 +135,7 @@ static const void *textFieldMenuUnvisible = &textFieldMenuUnvisible;
     return bounds;
 }
 
-- (CGRect)placeholderRectForBounds:(CGRect)bounds {
+- (CGRect)jl_placeholderRectForBounds:(CGRect)bounds {
     if (self.layer.borderWidth > 0.0f && !self.leftView) {
         bounds.origin.x += self.edgeInsets.left;
     } else if (self.leftView && self.textAlignment != NSTextAlignmentRight) {
@@ -106,7 +144,7 @@ static const void *textFieldMenuUnvisible = &textFieldMenuUnvisible;
     return bounds;
 }
 
-- (CGRect)editingRectForBounds:(CGRect)bounds {
+- (CGRect)jl_editingRectForBounds:(CGRect)bounds {
     if (self.layer.borderWidth > 0.0f && !self.leftView) {
         bounds.origin.x += self.edgeInsets.left;
     } else if (self.leftView && self.textAlignment != NSTextAlignmentRight) {

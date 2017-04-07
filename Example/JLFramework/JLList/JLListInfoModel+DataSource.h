@@ -24,4 +24,6 @@
 
 - (NSDictionary *)performBlockExample;
 
+- (NSDictionary *)userDefalutExample;
+
 @end
