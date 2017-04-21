@@ -26,6 +26,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
+    
+    
     [self addChildController:self.navVC];
     
     __weak typeof(self) weakSelf = self;

@@ -27,10 +27,11 @@
 - (instancetype)jl_initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     id obj = [self jl_initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (obj) {
-        if ([obj respondsToSelector:@selector(initView)]) {
-            [obj initView];
+        if ([obj respondsToSelector:@selector(initCell)]) {
+            [obj initCell];
         }
     }
     return obj;
 }
+
 @end

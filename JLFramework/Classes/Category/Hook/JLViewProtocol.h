@@ -11,6 +11,7 @@
 @protocol JLViewProtocol <NSObject>
 @optional
 - (void)initView;
+- (void)initCell; // for UITableViewCell
 
 - (void)setupLayoutConstraint;
 

@@ -83,7 +83,7 @@ static NSString *ExampleCellIdentifier = @"ExampleCellIdentifier";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    JLExampleCell *cell = [tableView dequeueReusableCellWithIdentifier:ExampleCellIdentifier forIndexPath:indexPath];
+    JLExampleCell *cell = [tableView dequeueReusableCellWithIdentifier:ExampleCellIdentifier];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     [self fetchedConfigCell:cell atIndexPath:indexPath];
     

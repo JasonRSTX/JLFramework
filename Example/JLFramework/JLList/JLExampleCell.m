@@ -24,13 +24,7 @@
 
 @implementation JLExampleCell
 - (CGFloat)heightView {
-    CGFloat height = CGFLOAT_MIN;
-    
-    height += self.contentInsets.top;
-    height += [self.labTitle.font lineHeight];
-    height += self.controlHalfInterval;
-    height += [self.labDesc realHeightInView:self.contentView atInsets:self.contentInsets];
-    height += self.contentInsets.bottom;
+    CGFloat height = [self systemLayoutSizeFittingSize:[self contentSizeInView:self.contentView]].height;
     
     return ceilf(height);
 }
@@ -44,30 +38,29 @@
 }
 
 //MARK: - Life Cycle
-- (void)initView {
+- (void)initCell {
+    self.contentInsets = self.edgeInsets;
+    self.contentView.contentInsets = self.edgeInsets;
+    
     [self.contentView addSubview:self.labTitle];
     [self.contentView addSubview:self.labUpdateTime];
     [self.contentView addSubview:self.labDesc];
     
-    self.contentInsets = self.edgeInsets;
-}
-
-- (void)setupLayoutConstraint {
     __weak typeof(self) weakSelf = self;
-    [self.labTitle mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.left.top.mas_equalTo(weakSelf.contentInsets);
+    [self.labTitle mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.mas_equalTo(weakSelf.contentView.contentInsets);
         make.right.mas_equalTo(weakSelf.labUpdateTime.mas_left).mas_offset(-make.controlInterval);
-        make.height.mas_equalTo([weakSelf.labTitle.font lineHeight]);
+        make.height.mas_equalTo(weakSelf.labTitle.font.lineHeight);
     }];
     
-    [self.labUpdateTime mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.top.right.mas_equalTo(weakSelf.contentInsets);
+    [self.labUpdateTime mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.right.mas_equalTo(weakSelf.contentView.contentInsets);
         make.left.mas_equalTo(weakSelf.labTitle.mas_right).mas_offset(make.controlInterval);
-        make.size.mas_equalTo([weakSelf.labUpdateTime simpleSize]);
+        make.height.mas_equalTo(weakSelf.labUpdateTime.font.lineHeight);
     }];
     
-    [self.labDesc mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.left.bottom.right.mas_equalTo(weakSelf.contentInsets);
+    [self.labDesc mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.bottom.right.mas_equalTo(weakSelf.contentView.contentInsets);
         make.top.mas_equalTo(weakSelf.labTitle.mas_bottom).mas_offset(make.controlHalfInterval);
         
     }];
@@ -88,6 +81,7 @@
     _labUpdateTime = [[UILabel alloc] init];
     _labUpdateTime.font = [UIFont descFont];
     _labUpdateTime.textColor = [UIColor sportColor];
+    _labUpdateTime.textAlignment = NSTextAlignmentRight;
     
     return _labUpdateTime;
 }
@@ -100,6 +94,8 @@
     _labDesc.numberOfLines = 0;
     _labDesc.lineBreakMode = NSLineBreakByWordWrapping;
     
+    [_labDesc setPreferredMaxLayoutWidth:[self contentSizeInView:self.contentView].width];
+
     return _labDesc;
 }
 
