@@ -31,3 +31,11 @@ Carthage
 # `pod install` in .travis.yml
 #
 # Pods/
+
+*.xcworkspacedata
+
+Example/JLFramework.xcworkspace/xcshareddata/JLFramework.xcscmblueprint
+
+Example/Podfile.lock
+
+Example/Pods/*

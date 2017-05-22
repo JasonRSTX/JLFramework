@@ -1,42 +1,47 @@
-#
-# Be sure to run `pod lib lint JLFramework.podspec' to ensure this is a
-# valid spec before submitting.
-#
-# Any lines starting with a # are optional, but their use is encouraged
-# To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html
-#
-
 Pod::Spec.new do |s|
   s.name             = 'JLFramework'
   s.version          = '0.1.0'
   s.summary          = 'JLFramwork is a set of coding tools and coding style.'
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
-
-  s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
 
   s.homepage         = 'https://github.com/JasonRSTX/JLFramework'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'JasonRSTX' => 'rstx_reg@aliyun.com' }
   s.source           = { :git => 'https://github.com/JasonRSTX/JLFramework.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.requires_arc     = true
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'JLFramework/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'JLFramework' => ['JLFramework/Assets/*.png']
-  # }
+  s.source_files = 'JLFramework/Classes/JLFramework.h'
+  s.public_header_files = 'JLFramework/Classes/JLFramework.h'
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  s.dependency 'JRSwizzle', '~> 1.0.0'
+  s.subspec 'Category' do |ss|
+    ss.subspec 'Hook' do |sss|
+      sss.source_files = 'JLFramework/Classes/Category/Hook/*.*'
+      sss.public_header_files = 'JLFramework/Classes/Category/Hook/*.h'
+      sss.dependency 'JRSwizzle', '~> 1.0.0'
+
+    end
+
+    ss.subspec 'SafeAccess' do |sss|
+      sss.source_files = 'JLFramework/Classes/Category/SafeAccess/*.*'
+      sss.public_header_files = 'JLFramework/Classes/Category/SafeAccess/*.h'
+    end
+
+    ss.subspec 'Tools' do |sss|
+      sss.source_files = 'JLFramework/Classes/Category/Tools/*.*'
+      sss.public_header_files = 'JLFramework/Classes/Category/Tools/*.h'
+    end
+  end
+
+  s.subspec 'CoreData' do |ss|
+    ss.source_files = 'JLFramework/Classes/CoreData/*.*'
+    ss.public_header_files = 'JLFramework/Classes/CoreData/*.h'
+  end
+
+  s.subspec 'JSONKit' do |ss|
+    ss.source_files = 'JLFramework/Classes/JSONKit/*.*'
+    ss.public_header_files = 'JLFramework/Classes/JSONKit/*.h'
+  end
+
 end
