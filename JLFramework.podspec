@@ -31,12 +31,14 @@ Pod::Spec.new do |s|
     ss.subspec 'Tools' do |sss|
       sss.source_files = 'JLFramework/Classes/Category/Tools/*.*'
       sss.public_header_files = 'JLFramework/Classes/Category/Tools/*.h'
+      sss.dependency 'JRSwizzle', '~> 1.0.0'
     end
   end
 
   s.subspec 'CoreData' do |ss|
     ss.source_files = 'JLFramework/Classes/CoreData/*.*'
     ss.public_header_files = 'JLFramework/Classes/CoreData/*.h'
+    ss.dependency 'JRSwizzle', '~> 1.0.0'
   end
 
   s.subspec 'JSONKit' do |ss|
