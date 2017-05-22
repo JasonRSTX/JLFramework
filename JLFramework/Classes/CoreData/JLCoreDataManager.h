@@ -91,6 +91,18 @@ NSPersistentStoreCoordinator *dataCoordinator;
 //MARK: - 查询
 /**
  获取CoreDate查询请求对象
+ 
+ @param name 实体描述对象名称
+ @param predicate 筛选谓词
+ @param sortDescriptors 排序数组@[NSSortDescriptor]
+ @return FetchRequest实例
+ */
+- (NSFetchRequest *)requestWithEntityName:(NSString *)name
+                                predicate:(nullable NSPredicate *)predicate
+                           sortDescriptor:(nullable NSArray *)sortDescriptors;
+
+/**
+ 获取CoreDate查询请求对象
 
  @param entity 实体描述对象
  @param predicate 筛选谓词
@@ -100,6 +112,7 @@ NSPersistentStoreCoordinator *dataCoordinator;
 - (NSFetchRequest *)requestWithEntity:(NSEntityDescription *)entity
                             predicate:(nullable NSPredicate *)predicate
                        sortDescriptor:(nullable NSArray *)sortDescriptors;
+
 
 /**
  查询结果

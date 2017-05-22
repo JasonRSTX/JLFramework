@@ -41,6 +41,8 @@
 		967F6BEC1E8E54330000D9BB /* JLBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 967F6BEB1E8E54330000D9BB /* JLBaseViewController.m */; };
 		968BC2B11E8F76FE006A2CB6 /* JLInitVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 968BC2B01E8F76FE006A2CB6 /* JLInitVC.m */; };
 		968BC2B51E8F7931006A2CB6 /* JLInitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 968BC2B41E8F7931006A2CB6 /* JLInitView.m */; };
+		969382441EA9F0D000AC8A82 /* JLStringToolsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 969382431EA9F0D000AC8A82 /* JLStringToolsVC.m */; };
+		969382471EA9F14600AC8A82 /* JLStringToolsTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 969382461EA9F14600AC8A82 /* JLStringToolsTableVC.m */; };
 		E12C099959E5CF37D0C51EE1 /* Pods_JLFramework_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B527B7A632B6F93F5F44F99E /* Pods_JLFramework_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -113,6 +115,10 @@
 		968BC2B01E8F76FE006A2CB6 /* JLInitVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLInitVC.m; sourceTree = "<group>"; };
 		968BC2B31E8F7931006A2CB6 /* JLInitView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLInitView.h; sourceTree = "<group>"; };
 		968BC2B41E8F7931006A2CB6 /* JLInitView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLInitView.m; sourceTree = "<group>"; };
+		969382421EA9F0D000AC8A82 /* JLStringToolsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLStringToolsVC.h; sourceTree = "<group>"; };
+		969382431EA9F0D000AC8A82 /* JLStringToolsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLStringToolsVC.m; sourceTree = "<group>"; };
+		969382451EA9F14600AC8A82 /* JLStringToolsTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLStringToolsTableVC.h; sourceTree = "<group>"; };
+		969382461EA9F14600AC8A82 /* JLStringToolsTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLStringToolsTableVC.m; sourceTree = "<group>"; };
 		B527B7A632B6F93F5F44F99E /* Pods_JLFramework_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JLFramework_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC9BB3D24AB3CA7FDE213EF0 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		D0D14A6CBCF5E429DDEE7077 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -356,6 +362,7 @@
 		966C7D921E8F8FCA00AD80DB /* JLTools */ = {
 			isa = PBXGroup;
 			children = (
+				9693823E1EA9EEBD00AC8A82 /* StringTools */,
 				9665E75D1E9636EC002A3839 /* UserDefault */,
 				9665E7521E9620DA002A3839 /* PerformBlock */,
 				9665E74E1E9609DE002A3839 /* Layout */,
@@ -420,6 +427,17 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		9693823E1EA9EEBD00AC8A82 /* StringTools */ = {
+			isa = PBXGroup;
+			children = (
+				969382421EA9F0D000AC8A82 /* JLStringToolsVC.h */,
+				969382431EA9F0D000AC8A82 /* JLStringToolsVC.m */,
+				969382451EA9F14600AC8A82 /* JLStringToolsTableVC.h */,
+				969382461EA9F14600AC8A82 /* JLStringToolsTableVC.m */,
+			);
+			name = StringTools;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -433,6 +451,7 @@
 				6003F588195388D20070C39A /* Resources */,
 				82B99BAF9FCF197B4E1F4C87 /* [CP] Embed Pods Frameworks */,
 				84531B816F66A7475AE32EDF /* [CP] Copy Pods Resources */,
+				962A08431ED292470016421C /* Version Increase */,
 			);
 			buildRules = (
 			);
@@ -584,6 +603,20 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JLFramework_Example/Pods-JLFramework_Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		962A08431ED292470016421C /* Version Increase */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Version Increase";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\necho $CONFIGURATION\n\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nif [ \"Release\" == \"${CONFIGURATION}\" ]\nthen\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\nfi\n\ndateVersion=`date +%y%m%d`\ncurrentVersion=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" \"$INFOPLIST_FILE\")\npreVersion=`echo $currentVersion | cut -d '.' -f 1,2`\nversion=$preVersion'.'$buildNumber'.'$dateVersion\n\nif [ $currentVersion != $version ]\nthen\n/usr/libexec/PlistBuddy -c \"Set :CFBundleShortVersionString $version\" \"$INFOPLIST_FILE\"\nfi";
+		};
 		DDFA48A61E1B311C6D29C9BF /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -626,8 +659,10 @@
 				9600CA8F1E8B7B95003B32E1 /* JLListInfoModel.m in Sources */,
 				9600CA9D1E8BB332003B32E1 /* UIFont+Project.m in Sources */,
 				9600CA971E8BB071003B32E1 /* JLExampleCell.m in Sources */,
+				969382471EA9F14600AC8A82 /* JLStringToolsTableVC.m in Sources */,
 				968BC2B51E8F7931006A2CB6 /* JLInitView.m in Sources */,
 				6003F5A7195388D20070C39A /* JLViewController.m in Sources */,
+				969382441EA9F0D000AC8A82 /* JLStringToolsVC.m in Sources */,
 				967F6BEC1E8E54330000D9BB /* JLBaseViewController.m in Sources */,
 				962DC6B41E8A630100235DDA /* Example.xcdatamodeld in Sources */,
 				966C7D961E8F90E000AD80DB /* JLArrayShuffleVC.m in Sources */,

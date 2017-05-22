@@ -170,6 +170,14 @@
 }
 
 //MARK: - 查询
+- (NSFetchRequest *)requestWithEntityName:(NSString *)name
+                                predicate:(NSPredicate *)predicate
+                           sortDescriptor:(NSArray *)sortDescriptors {
+    return [self requestWithEntity:[self entityWithName:name]
+                         predicate:predicate
+                    sortDescriptor:sortDescriptors];
+}
+
 - (NSFetchRequest *)requestWithEntity:(NSEntityDescription *)entity
                             predicate:(NSPredicate *)predicate
                        sortDescriptor:(NSArray *)sortDescriptors {

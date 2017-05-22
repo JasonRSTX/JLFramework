@@ -98,4 +98,15 @@
     return dict;
 }
 
+- (NSDictionary *)stringToolsExample {
+    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithCapacity:0];
+    [dict setValue:@"StringTools" forKey:@"exampleID"];
+    [dict setValue:@"NSString Tools" forKey:@"title"];
+    [dict setValue:@"Tools:针对NSString对象的一组工具" forKey:@"desc"];
+    [dict setValue:@"StringToolsVC" forKey:@"landingVC"];
+    [dict setValue:@"20170421" forKey:@"lastUpdateTime"];
+    
+    return dict;
+}
+
 @end

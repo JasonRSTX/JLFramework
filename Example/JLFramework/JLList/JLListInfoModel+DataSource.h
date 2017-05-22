@@ -26,4 +26,6 @@
 
 - (NSDictionary *)userDefalutExample;
 
+- (NSDictionary *)stringToolsExample;
+
 @end

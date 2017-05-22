@@ -51,37 +51,38 @@
 
 
 @implementation NSString (JLStringMatchesRegular)
-- (BOOL)stringByMathesRegular:(NSString *)regular {
+
+- (BOOL)stringByMatchsRegular:(NSString *)regular {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regular];
     return [predicate evaluateWithObject:self];
 }
 
-- (BOOL)checkChineseString:(NSString *)string {
-    return [string stringByMathesRegular:@"^[\\u4e00-\\u9fa5]*$"];
+- (BOOL)checkChineseString {
+    return [self stringByMatchsRegular:@"^[\\u4e00-\\u9fa5]*$"];
 }
 
-- (BOOL)checkEnglishString:(NSString *)string {
-    return [string stringByMathesRegular:@"^[A-Za-z\\s.-]+$"];
+- (BOOL)checkEnglishString {
+    return [self stringByMatchsRegular:@"^[A-Za-z\\s.-]+$"];
 }
 
-- (BOOL)checkLatinAndChinese:(NSString *)string {
-    return [string stringByMathesRegular:@"^[A-Za-z\\u4e00-\\u9fa5\\s]+$"];
+- (BOOL)checkLatinAndChinese {
+    return [self stringByMatchsRegular:@"^[A-Za-z\\u4e00-\\u9fa5\\s]+$"];
 }
 
-- (BOOL)checkNumberString:(NSString *)string {
-    return [string stringByMathesRegular:@"^[0-9\\s]+$"];
+- (BOOL)checkNumberString {
+    return [self stringByMatchsRegular:@"^[0-9\\s]+$"];
 }
 
-- (BOOL)checkNumberAndLetter:(NSString *)string {
-    return [string stringByMathesRegular:@"^[A-Za-z0-9\\s]+$"];
+- (BOOL)checkNumberAndLetter {
+    return [self stringByMatchsRegular:@"^[A-Za-z0-9\\s]+$"];
 }
 
-- (BOOL)checkNumberAndLowerCaseLetter:(NSString *)string {
-    return [string stringByMathesRegular:@"^[a-z0-9\\s]+$"];
+- (BOOL)checkNumberAndLowerCaseLetter {
+    return [self stringByMatchsRegular:@"^[a-z0-9\\s]+$"];
 }
 
-- (BOOL)checkNumberAndUpperCaseLetter:(NSString *)string {
-    return [string stringByMathesRegular:@"^[A-Z0-9\\s]+$"];
+- (BOOL)checkNumberAndUpperCaseLetter {
+    return [self stringByMatchsRegular:@"^[A-Z0-9\\s]+$"];
 }
 
 - (BOOL)checkEmojiString {
@@ -123,19 +124,19 @@
 }
 
 - (BOOL)check86CellPhoneNumber {
-    return [self stringByMathesRegular:@"^1+[34578]{1}+\\d{9}"];
+    return [self stringByMatchsRegular:@"^1+[34578]{1}+\\d{9}"];
 }
 
 - (BOOL)check86IDCardNumber {
-    BOOL isMatch = [self stringByMathesRegular:@"^[1-9]\\d{7}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}"];
+    BOOL isMatch = [self stringByMatchsRegular:@"^[1-9]\\d{7}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}"];
     if (!isMatch) {
-        return [self stringByMathesRegular:@"^[1-9]\\d{5}[1-9]\\d{3}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}([0-9]|X|x)"];
+        return [self stringByMatchsRegular:@"^[1-9]\\d{5}[1-9]\\d{3}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}([0-9]|X|x)"];
     }
     return isMatch;
 }
 
 - (BOOL)checkEmail {
-    return [self stringByMathesRegular:@"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"];
+    return [self stringByMatchsRegular:@"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"];
 }
 
 @end

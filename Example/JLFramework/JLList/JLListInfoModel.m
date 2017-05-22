@@ -113,6 +113,7 @@
     [_dataSource addObject:[self layoutExample]];
     [_dataSource addObject:[self performBlockExample]];
     [_dataSource addObject:[self userDefalutExample]];
+    [_dataSource addObject:[self stringToolsExample]];
     
     return _dataSource;
 }
