@@ -19,6 +19,7 @@
 @end
 
 @interface NSObject (JLKeyboard)<JLKeyboardOperProtocol>
+@property (nonatomic, assign) CGFloat originalY;
 @property (nonatomic, strong) UIView *keyboardResponseView;
 
 @property (nonatomic, strong) NSNotification *keyboardNotification;

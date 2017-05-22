@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)showComingSoon NS_AVAILABLE_IOS(8_0);
 - (void)showAlertNote:(nullable NSString *)note NS_AVAILABLE_IOS(8_0);
 - (void)showAlertNote:(NSString *)note doneTitle:(NSString *)done NS_AVAILABLE_IOS(8_0);
-- (void)showAlertNote:(NSString *)note doneTitle:(NSString *)done actionHandler:(void (^)(UIAlertAction *action))handler NS_AVAILABLE_IOS(8_0);
+- (void)showAlertNote:(NSString *)note doneTitle:(NSString *)done actionHandler:(nullable void (^)(UIAlertAction *action))handler NS_AVAILABLE_IOS(8_0);
 
 @end
 

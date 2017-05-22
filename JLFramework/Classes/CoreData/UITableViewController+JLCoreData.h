@@ -10,6 +10,7 @@
 @import CoreData;
 
 @protocol JLCoreDataFetchedConfigCellProtocol <NSObject>
+@optional
 /**
  CoreData刷新Cell时调用该协议，实现Cell数据的刷新
 

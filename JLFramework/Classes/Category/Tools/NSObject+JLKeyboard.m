@@ -12,11 +12,6 @@
 
 static const void *keyboardResponseViewOriginalY = &keyboardResponseViewOriginalY;
 
-@interface NSObject (JLKeyboard)
-@property (nonatomic, assign) CGFloat originalY;
-
-@end
-
 @implementation NSObject (JLKeyboard)
 - (NSNotification *)keyboardNotification {
     return objc_getAssociatedObject(self, @selector(keyboardNotification));
