@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'JLFramework'
-  s.version          = '0.1.1'
+  s.version          = '0.1.2'
   s.summary          = 'JLFramwork is a set of coding tools and coding style.'
 
   s.homepage         = 'https://github.com/JasonRSTX/JLFramework'
