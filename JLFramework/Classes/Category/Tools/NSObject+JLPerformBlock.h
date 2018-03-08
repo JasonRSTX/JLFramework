@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface NSObject (JLPerformBlock)
-- (void)performBlock:(void (^)())block;
-- (void)performBlock:(void (^)())block afterDelay:(NSTimeInterval)delay;
+- (void)performBlock:(void (^)(void))block;
+- (void)performBlock:(void (^)(void))block afterDelay:(NSTimeInterval)delay;
 
 @end

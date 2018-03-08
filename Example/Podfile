@@ -3,7 +3,7 @@ use_frameworks!
 target 'JLFramework_Example' do
   pod 'JLFramework', :path => '../'
   
-  pod 'Masonry', '~> 1.0.2'
+  pod 'Masonry', '~> 1.1'
 
   target 'JLFramework_Tests' do
     inherit! :search_paths

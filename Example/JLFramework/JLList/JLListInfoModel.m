@@ -21,7 +21,7 @@
 
 @implementation JLListInfoModel
 
-- (void)initListData:(void (^)())completed {
+- (void)initListData:(void (^)(void))completed {
     if ([[CDManager sharedInstance] countForRequest:self.requestAllByShowCount] == 0) {
         [self insertDatas];
     } else {

@@ -39,7 +39,10 @@ static const void *keyboardResponseViewOriginalY = &keyboardResponseViewOriginal
 }
 
 - (BOOL)isShowedKeyboard {
-    return (self.keyboardNotification);
+    if (self.keyboardNotification) {
+        return YES;
+    }
+    return NO;
 }
 
 - (void)addKeyboardNotification {

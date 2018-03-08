@@ -9,15 +9,15 @@
 #import "NSObject+JLPerformBlock.h"
 
 @implementation NSObject (JLPerformBlock)
-- (void)performBlock:(void (^)())block {
+- (void)performBlock:(void (^)(void))block {
     [self performBlock:block afterDelay:0];
 }
 
-- (void)performBlock:(void (^)())block afterDelay:(NSTimeInterval)delay {
+- (void)performBlock:(void (^)(void))block afterDelay:(NSTimeInterval)delay {
     [self performSelector:@selector(fireBlockAfterDelay:) withObject:block afterDelay:delay];
 }
 
-- (void)fireBlockAfterDelay:(void (^)())block {
+- (void)fireBlockAfterDelay:(void (^)(void))block {
     if (block) block();
 }
 

@@ -12,7 +12,7 @@
 @interface JLListInfoModel : NSObject
 @property (nonatomic, strong) NSFetchedResultsController *frc;
 
-- (void)initListData:(void(^)())completed;
+- (void)initListData:(void(^)(void))completed;
 
 - (void)deletedAllListInfo;
 
