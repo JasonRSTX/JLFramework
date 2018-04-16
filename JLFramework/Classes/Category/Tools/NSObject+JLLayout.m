@@ -8,6 +8,8 @@
 
 #import "NSObject+JLLayout.h"
 
+#define IS_IPHONEX (([[UIScreen mainScreen] bounds].size.height - 812) ? NO : YES)
+
 @implementation NSObject (JLLayout)
 - (UIEdgeInsets)edgeInsets {
     return UIEdgeInsetsMake(8.0f, 15.0f, 8.0f, 15.0f);
@@ -18,15 +20,15 @@
 }
 
 - (CGFloat)navHeight {
-    return 64.f;
+    return 44.f + self.statusBarHeight;
 }
 
 - (CGFloat)statusBarHeight {
-    return 20.f;
+    return  (IS_IPHONEX) ? 44.f : 20.f;
 }
 
 - (CGFloat)tabBarHeight {
-    return 48.f;
+    return (IS_IPHONEX) ? 83.f : 49.f;
 }
 
 - (CGFloat)controlInterval {
